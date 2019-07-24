@@ -7,9 +7,21 @@ module.exports = {
   findById,
 };
 
+// SESSIONS
 function find() {
   return db('users').select('id', 'username').orderBy("id");
 }
+
+// JWT
+// function find(department) {
+//   const query = db('users').select('id', 'username', 'department');
+
+//   if (department) {
+//     query.where({ department });
+//   }
+
+//   return query;
+// }
 
 function findBy(filter) {
   return db('users').where(filter).then(user => {

@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  if (req.session.user) {
+  if (req.session.username) {
     req.session.destroy(error => {
       if (error) {
         res.status(500).json({ message: "Server error." });
@@ -75,6 +75,7 @@ router.get("/logout", (req, res) => {
 //   const payload = {
 //     subject: user.id,
 //     username: user.username,
+//     department: user.department,
 //     roles: ["student", "ta"] // this would be a DB call
 //   };
 //   const options = {

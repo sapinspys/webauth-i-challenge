@@ -6,7 +6,11 @@ const restricted = require("../auth/restricted-middleware.js");
 // This endpoint needs to be restricted unless user provides
 // the right credentials in the headers
 router.get("/", restricted, async (req, res) => {
+  // JWT
+  // const department = req.decodedJwt.department
+
   try {
+    // const users = await Users.find(department);
     const users = await Users.find();
     res.status(200).json(users);
   } catch (error) {

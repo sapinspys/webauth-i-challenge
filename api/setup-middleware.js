@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const helmet = require('helmet')
+const helmet = require('helmet');
 const cors = require("cors");
 
 // used to persist data in DB even after server restarts
@@ -27,14 +27,14 @@ module.exports = server => {
     })
   }
   
-    server.use(helmet());
-    server.use(express.json());
-    server.use(cors());
-    server.use(session(sessionConfig));
+  server.use(helmet());
+  server.use(express.json());
+  server.use(cors());
+  server.use(session(sessionConfig));
 
-    server.use(function(req, res, next) {
-      console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
-    
-      next();
-    });
+  server.use(function(req, res, next) {
+    console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
+  
+    next();
+  });
 }

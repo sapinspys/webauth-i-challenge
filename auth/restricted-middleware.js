@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
 //         res.status(401).json({ message: "Invalid credentials" });
 //       } else {
 //         // token IS valid
-//         req.decodedJwt = decodedToken // adds all decoded info to REQ, including roles!
+//         req.decodedJwt = decodedToken // adds all decoded info to the request, including roles and dpt!
 //         next();
 //       }
 //     })
